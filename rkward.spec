@@ -17,6 +17,8 @@ BuildRequires:	cmake
 BuildRequires:	kde4-macros
 Requires:	R-base		>= 2.6.0
 Requires:	php-cli
+Obsoletes:      kde4-%name <= 0.5.0b
+Provides:       kde4-%name = %version
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -28,6 +30,27 @@ office-suite. Practical statistics is not just about calculating, after all,
 but also about documenting and ultimately publishing the results.
 
 This is a KDE4 port of %{oname}.
+
+%post
+%{update_desktop_database}
+%update_icon_cache hicolor
+
+%postun
+%{clean_desktop_database}
+%clean_icon_cache hicolor
+
+%files -f %{oname}.lang
+%defattr(-,root,root)
+%doc AUTHORS ChangeLog README
+%{_kde_bindir}/%{oname}*
+%{_kde_datadir}/applications/kde4/rkward.desktop
+%{_kde_appsdir}/rkward
+%{_kde_appsdir}/katepart/*
+%{_kde_docdir}/*/*/*
+%{_kde_iconsdir}/*
+%{_kde_libdir}/R/*
+
+#--------------------------------------------------------------------
 
 %prep
 %setup -qn %{oname}-%{version}
@@ -41,7 +64,7 @@ This is a KDE4 port of %{oname}.
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 pushd build
-%makeinstall_std
+ %makeinstall_std
 popd
 
 #(tpg) provide by R-base
@@ -49,24 +72,5 @@ rm -rf %{buildroot}%{_libdir}/R/lib/R.css
 
 %find_lang %{oname}
 
-%post
-%{update_desktop_database}
-%update_icon_cache hicolor
-
-%postun
-%{clean_desktop_database}
-%clean_icon_cache hicolor
-
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
-%files -f %{oname}.lang
-%defattr(-,root,root)
-%doc AUTHORS ChangeLog README
-%{_kde_bindir}/%{oname}*
-%{_kde_datadir}/applications/kde4/rkward.desktop
-%{_kde_appsdir}/rkward
-%{_kde_appsdir}/katepart/*
-%{_kde_docdir}/*/*/*
-%{_kde_iconsdir}/*
-%{_libdir}/R/*
