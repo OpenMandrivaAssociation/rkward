@@ -45,7 +45,7 @@ but also about documenting and ultimately publishing the results.
 %{_kde_appsdir}/katepart/*
 %{_kde_docdir}/*/*/*
 %{_kde_iconsdir}/*
-%{_kde_libdir}/R/*
+%{_libdir}/R/*
 
 #--------------------------------------------------------------------
 
