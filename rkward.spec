@@ -1,14 +1,13 @@
 %define _requires_exceptions libR.so\\|libRblas.so\\|libRlapack.so
-%define oname rkward
 
 Summary:	A KDE gui to R language
-Name:		kde4-%{oname}
+Name:		rkward
 Version:	0.5.0b
 Release:	%mkrel 2
 License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://rkward.sourceforge.net
-Source0:	http://downloads.sourceforge.net/rkward/%{oname}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.bz2
 Buildrequires:	R-base		>= 2.6.0
 BuildRequires:	kdelibs4-devel	>= 4.0.0
 BuildRequires:	gcc-gfortran
@@ -37,10 +36,10 @@ but also about documenting and ultimately publishing the results.
 %{clean_desktop_database}
 %clean_icon_cache hicolor
 
-%files -f %{oname}.lang
+%files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
-%{_kde_bindir}/%{oname}*
+%{_kde_bindir}/%{name}*
 %{_kde_datadir}/applications/kde4/rkward.desktop
 %{_kde_appsdir}/rkward
 %{_kde_appsdir}/katepart/*
@@ -51,7 +50,7 @@ but also about documenting and ultimately publishing the results.
 #--------------------------------------------------------------------
 
 %prep
-%setup -qn %{oname}-%{version}
+%setup -qn %{name}-%{version}
 
 %build
 %cmake_kde4
@@ -68,7 +67,7 @@ popd
 #(tpg) provide by R-base
 rm -rf %{buildroot}%{_libdir}/R/lib/R.css
 
-%find_lang %{oname}
+%find_lang %{name}
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
