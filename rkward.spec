@@ -4,7 +4,7 @@
 Summary:	A KDE gui to R language
 Name:		kde4-%{oname}
 Version:	0.5.0b
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://rkward.sourceforge.net
@@ -17,8 +17,8 @@ BuildRequires:	cmake
 BuildRequires:	kde4-macros
 Requires:	R-base		>= 2.6.0
 Requires:	php-cli
-Obsoletes:      kde4-%name <= 0.5.0b
-Provides:       kde4-%name = %version
+Obsoletes:      kde4-%{name} <= 0.5.0b
+Provides:       kde4-%{name} = %{version}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -28,8 +28,6 @@ a strong focus on statistic functions. It will not only provide a convenient
 user-interface, however, but also take care of seamless integration with an 
 office-suite. Practical statistics is not just about calculating, after all, 
 but also about documenting and ultimately publishing the results.
-
-This is a KDE4 port of %{oname}.
 
 %post
 %{update_desktop_database}
