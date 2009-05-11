@@ -2,7 +2,7 @@
 
 Summary:	A KDE gui to R language
 Name:		rkward
-Version:	0.5.0c
+Version:	0.5.0d
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Sciences/Mathematics
