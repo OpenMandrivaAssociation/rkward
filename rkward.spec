@@ -2,13 +2,13 @@
 
 Summary:	A KDE gui to R language
 Name:		rkward
-Version:	0.5.3
-Release:	%mkrel 2
+Version:	0.5.4
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://rkward.sourceforge.net
 Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-Buildrequires:	R-base >= 2.6.0
+BuildRequires:	R-base >= 2.6.0
 BuildRequires:	kdelibs4-devel  >= 4.0.0
 BuildRequires:	gcc-gfortran
 BuildRequires:	desktop-file-utils
