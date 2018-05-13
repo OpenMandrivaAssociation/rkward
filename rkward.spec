@@ -6,17 +6,20 @@
 
 Summary:	A KDE gui to R language
 Name:		rkward
-Version:	0.6.0
-Release:	2
+Version:	0.7.0
+Release:	1
 License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://rkward.sourceforge.net
-Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
+Source0:	http://download.kde.org/stable/rkward/%{version}/src/%{name}-%{version}b.tar.gz
 BuildRequires:	pkgconfig(libR)
-BuildRequires:	kdelibs4-devel
 BuildRequires:	gcc-gfortran
 BuildRequires:	desktop-file-utils
 BuildRequires:	cmake
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt5Widgets) cmake(Qt5Core) cmake(Qt5Xml) cmake(Qt5Network) cmake(Qt5WebKitWidgets) cmake(Qt5Script) cmake(Qt5PrintSupport)
+BuildRequires:  cmake(KF5CoreAddons) cmake(KF5DocTools) cmake(KF5I18n) cmake(KF5XmlGui) cmake(KF5TextEditor) cmake(KF5WidgetsAddons) cmake(KF5WebKit) cmake(KF5Parts) cmake(KF5Config) cmake(KF5Notifications) cmake(KF5WindowSystem) cmake(KF5Crash)
+
 Requires:	R-base
 Requires:	php-cli
 Suggests:	katepart
@@ -32,14 +35,14 @@ office-suite. Practical statistics is not just about calculating, after all,
 but also about documenting and ultimately publishing the results.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{version}b
 
 %build
-%cmake_kde4
-%make
+%cmake_kde5
+%ninja
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 #(tpg) provide by R-base
 rm -rf %{buildroot}%{_libdir}/R/lib/R.css
@@ -51,13 +54,15 @@ rm -f %{buildroot}%{_kde_appsdir}/katepart/syntax/r.xml
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog README
-%{_kde_bindir}/%{name}*
-%{_kde_datadir}/applications/kde4/rkward.desktop
-%{_kde_appsdir}/rkward
-%{_kde_appsdir}/katepart/*
-%{_kde_docdir}/*/*/*
-%{_kde_iconsdir}/*
-%{_kde_libdir}/kde4/libexec/%{name}.*
-%{_kde_mandir}/man1/%{name}.1*
+%{_bindir}/%{name}*
+%{_datadir}/kservices5/rkward.protocol
+%{_datadir}/applications/*.desktop
+%{_datadir}/rkward
+%{_datadir}/kxmlgui5/rkward
+%{_datadir}/mime/packages/*
+%{_docdir}/*/*/*
+%{_iconsdir}/*
+%{_libdir}/libexec/%{name}.*
+%{_mandir}/man1/%{name}.1*
 %{_libdir}/R/*
-
+%{_datadir}/org.kde.syntax-highlighting/syntax/*
