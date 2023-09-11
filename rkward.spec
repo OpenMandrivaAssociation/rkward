@@ -6,12 +6,12 @@
 
 Summary:	A KDE gui to R language
 Name:		rkward
-Version:	0.7.0
+Version:	0.7.5
 Release:	1
 License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://rkward.sourceforge.net
-Source0:	http://download.kde.org/stable/rkward/%{version}/src/%{name}-%{version}b.tar.gz
+Source0:	http://download.kde.org/stable/rkward/%{version}/src/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(libR)
 BuildRequires:	gcc-gfortran
 BuildRequires:	desktop-file-utils
@@ -35,7 +35,7 @@ office-suite. Practical statistics is not just about calculating, after all,
 but also about documenting and ultimately publishing the results.
 
 %prep
-%setup -qn %{name}-%{version}b
+%setup -qn %{name}-%{version}
 
 %build
 %cmake_kde5
