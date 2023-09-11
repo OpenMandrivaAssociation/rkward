@@ -17,7 +17,7 @@ BuildRequires:	gcc-gfortran
 BuildRequires:	desktop-file-utils
 BuildRequires:	cmake
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(Qt5Widgets) cmake(Qt5Core) cmake(Qt5Xml) cmake(Qt5Network) cmake(Qt5WebKitWidgets) cmake(Qt5Script) cmake(Qt5PrintSupport)
+BuildRequires:	cmake(Qt5Widgets) cmake(Qt5Core) cmake(Qt5Xml) cmake(Qt5Network) cmake(Qt5WebKitWidgets) cmake(Qt5Script) cmake(Qt5PrintSupport) cmake(Qt5Test)
 BuildRequires:  cmake(KF5CoreAddons) cmake(KF5DocTools) cmake(KF5I18n) cmake(KF5XmlGui) cmake(KF5TextEditor) cmake(KF5WidgetsAddons) cmake(KF5WebKit) cmake(KF5Parts) cmake(KF5Config) cmake(KF5Notifications) cmake(KF5WindowSystem) cmake(KF5Crash)
 
 Requires:	R-base
