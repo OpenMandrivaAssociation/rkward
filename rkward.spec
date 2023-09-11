@@ -58,11 +58,12 @@ rm -f %{buildroot}%{_kde_appsdir}/katepart/syntax/r.xml
 %{_datadir}/kservices5/rkward.protocol
 %{_datadir}/applications/*.desktop
 %{_datadir}/rkward
-#{_datadir}/kxmlgui5/rkward
 %{_datadir}/mime/packages/*
 %{_docdir}/*/*/*
 %{_iconsdir}/*
 %{_libdir}/libexec/%{name}.*
 %{_mandir}/man1/%{name}.1*
-#{_libdir}/R/*
+%{_mandir}/*/man1/rkward.1.*
 %{_datadir}/org.kde.syntax-highlighting/syntax/*
+%{_datadir}/ktexteditor_snippets/data/
+%{_datadir}/metainfo/org.kde.rkward.appdata.xml
