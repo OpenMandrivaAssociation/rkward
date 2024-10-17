@@ -10,7 +10,7 @@ Version:	0.7.5
 Release:	2
 License:	GPLv2+
 Group:		Sciences/Mathematics
-Url:		http://rkward.sourceforge.net
+Url:		https://rkward.sourceforge.net
 Source0:	http://download.kde.org/stable/rkward/%{version}/src/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(libR)
 BuildRequires:	gcc-gfortran
